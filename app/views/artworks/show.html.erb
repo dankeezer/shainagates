@@ -1,0 +1,18 @@
+<center>
+<table>
+  <tr><h3>
+    <td><h3>Name</h3></td>
+    <td><h3>Description</h3></td>
+    <td><h3>Path</h3></td>
+  </tr>
+
+    <tr>
+    <td width="33%"><h4><%= @artwork.name %></h4></td>
+    <td width="33%"><h4><%= @artwork.description %></h4></td>
+    <td width="33%"><h4><%= @artwork.filepicker_url %></h4></td>
+  </tr>
+</table>
+</center>
+<hr>
+<h4><%= link_to "Edit Entry", edit_artwork_path(@artwork) %></h4>
+<h4><a href="../">Back</a></h4>

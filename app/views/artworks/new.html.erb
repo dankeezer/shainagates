@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+
+<style type = "text/css">
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  padding-top: 10px;
+}
+
+.fa {
+  font-size: 20pt;
+  vertical-align: middle;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.fa:hover {
+  color: #FFFFFF;
+}
+
+.fa-pencil-square-o {
+  padding-top: 3px;
+}
+
+table
+{
+border-collapse:collapse;
+}
+
+table,th, td
+{
+
+padding: 5px;
+text-align: center;
+
+}
+
+tr {
+  background-color: #aeaeae;
+  border: 4px solid white;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+ul li {
+  vertical-align: middle;
+}
+
+h4, a:link, a:visited, a:hover{
+  display: inline;
+  color: #FFF;
+  letter-spacing: 2px;
+  font-weight: 300;
+  font-size: 20px;
+  text-decoration: none !important;
+}
+
+h4:link {
+  color: #FFFFFF;
+}
+
+</style>
+
+<body>
+<center>
+<table>
+    <tr class="table_header">
+      <td><h4>New Artwork</h4></td>
+    </tr> 
+<%= render 'form' %>
+  </table>
+  </center>

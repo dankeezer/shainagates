@@ -1,0 +1,34 @@
+<%= javascript_include_tag "http://code.jquery.com/jquery-latest.min.js" %>
+<%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
+
+
+      <% if @artwork.errors.any? %>
+      <tr>
+      <td>
+        <h2>There were errors saving your art work</h2>
+        <ul>
+        <% @artwork.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </td>
+    </tr>
+      <% end %>
+
+
+  <tbody>
+
+  <%= simple_form_for @artwork do |f| %>
+    <tr><td>
+    <%= f.text_field :name, :placeholder => "Name" %>
+    </tr></td>
+    <tr><td>
+    <%= f.text_field :description, :placeholder => "Description" %>
+    </tr></td>
+    <tr><td>    
+    <%= f.filepicker_field :filepicker_url, dragdrop: true %> <!-- User#filepicker_url is a regular string column -->
+    </tr></td>
+    <tr><td>    
+    <%= f.submit %>
+  <% end %>
+  </tbody>

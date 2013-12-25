@@ -1,0 +1,86 @@
+
+
+<%= javascript_include_tag "http://code.jquery.com/jquery-latest.min.js" %>
+<%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
+<%= javascript_include_tag "jquery-photo-resize" %>
+
+<style type = "text/css">
+
+table {
+  border-spacing: 0px !important;
+}
+
+body {
+  display: block;
+  margin: 0px;
+  overflow: hidden;
+}
+
+td {
+  padding: 0px;
+  border-spacing: 0px !important;
+  margin: 0px; 
+}
+
+.overlay {
+  display: block;
+/*  width: 1000%;*/
+  position: static;
+  overflow-x: scroll;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#status { 
+  position: fixed; 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  font-weight: 300;
+  letter-spacing: 2px;
+  padding: 3px;
+  padding-left: 5px;
+  color: white;
+  display: none;
+}
+
+</style>
+
+<body>
+<div id="status">statement | contact</span></div>
+  <div class="overlay">
+    <table width="100%" height="100%">
+      <tr>
+          <% @artworks.each do |artwork| %>
+            <td><div id="<%= artwork.position %>"></a><%= filepicker_image_tag artwork.filepicker_url, fit: "clip" %></div></td>
+          <% end %>
+      </tr>
+    </table>
+  </div>
+</body>
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+          $("img").photoResize({
+          });
+  });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  var oldScrollTop = $('.overlay').scrollTop();
+  var oldScrollLeft = $('.overlay').scrollLeft();
+
+  $('.overlay').scroll(function () { 
+    if(oldScrollTop == $('.overlay').scrollTop()) {
+        $('#status').fadeIn();
+    }
+    else {
+        $('#current').html('Vertical');
+    }
+    oldScrollTop = $('.overlay').scrollTop();
+    oldScrollLeft = $('.overlay').scrollLeft();
+  });
+});
+</script>
