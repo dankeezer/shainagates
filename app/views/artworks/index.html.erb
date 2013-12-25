@@ -14,6 +14,7 @@ body {
   display: block;
   margin: 0px;
   overflow: hidden;
+  background-color: #aeaeae;
 }
 
 td {
@@ -45,25 +46,57 @@ td {
   display: none;
 }
 
+#statement, #contact {
+  display: inline-block;
+  top: 0;
+  color: white;
+  background-color: #aeaeae;
+  height: 99%;
+  width: 1200px;
+}
+
+h4, a:link, a:visited, a:hover{
+  color: #FFF;
+  letter-spacing: 2px;
+  font-weight: 300;
+  font-size: 16px;
+  text-decoration: none !important;
+}
+
+h6, a:link, a:visited, a:hover {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: white;
+  display: inline;
+}
+
 </style>
 
 <body>
-<div id="status">statement | contact</span></div>
+<div id="status"><a href="#statement"><h6>statement</a> | <a href="#contact"></h6>contact</a></span></div>
   <div class="overlay">
     <table width="100%" height="100%">
       <tr>
           <% @artworks.each do |artwork| %>
             <td><div id="<%= artwork.position %>"></a><%= filepicker_image_tag artwork.filepicker_url, fit: "clip" %></div></td>
           <% end %>
+          <td><div id="statement">
+            <%= render 'statement' %>
+          </div></td>
+          <td><div id="contact">
+            <%= render 'contact' %>
+          </div></td>
       </tr>
     </table>
   </div>
 </body>
 
 <script type="text/javascript" charset="utf-8">
-  $(document).ready(function() {
-          $("img").photoResize({
-          });
+  $(window).ready(function() {
+    $("img").photoResize({
+    });
   });
 </script>
 
@@ -82,5 +115,12 @@ $(document).ready(function() {
     oldScrollTop = $('.overlay').scrollTop();
     oldScrollLeft = $('.overlay').scrollLeft();
   });
+});
+</script>
+
+<script>
+$(document).ready(function() {
+  $("#statement").width($(window).width());
+  $("#contact").width($(window).width());
 });
 </script>
