@@ -1,6 +1,8 @@
 class ArtworksController < ApplicationController
   before_filter :authenticate, :except => [:index]
 
+  #forcing heroku push whatever
+
   skip_before_filter  :verify_authenticity_token
 
   def index
