@@ -1,5 +1,5 @@
-class ArtworksController < ApplicationController
-  before_filter :authenticate
+class AdminController < ApplicationController
+  # before_filter :authenticate
   skip_before_filter  :verify_authenticity_token
 
   def index
@@ -58,14 +58,14 @@ class ArtworksController < ApplicationController
 
   private
 
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == "foo" && password == "bar"
-    end
-  end
+  # def authenticate
+  #   authenticate_or_request_with_http_basic do |username, password|
+  #     username == "foo" && password == "bar"
+  #   end
+  # end
 
   def artwork_params
-    params.require('artwork').permit(:name, :description, :filepicker_url)
+    params.require('admin').permit(:name, :description, :filepicker_url)
   end
 
 end

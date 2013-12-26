@@ -34,7 +34,7 @@ td {
   left: 0;
 }
 
-#status { 
+.status { 
   position: fixed; 
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 10pt;
@@ -75,7 +75,7 @@ h6, a:link, a:visited, a:hover {
 </style>
 
 <body>
-<div id="status"><a href="#statement"><h6>statement</a> | <a href="#contact"></h6>contact</a></span></div>
+<div class="status"><a href="#statement"><h6>statement</a> | <a href="#contact"></h6>contact</a></span></div>
   <div class="overlay">
     <table width="100%" height="100%">
       <tr>
@@ -107,10 +107,7 @@ $(document).ready(function() {
 
   $('.overlay').scroll(function () { 
     if(oldScrollTop == $('.overlay').scrollTop()) {
-        $('#status').fadeIn();
-    }
-    else {
-        $('#current').html('Vertical');
+        $('.status').fadeIn();
     }
     oldScrollTop = $('.overlay').scrollTop();
     oldScrollLeft = $('.overlay').scrollLeft();
@@ -122,5 +119,24 @@ $(document).ready(function() {
 $(document).ready(function() {
   $("#statement").width($(window).width());
   $("#contact").width($(window).width());
+});
+</script>
+
+<script>
+
+$(function() {
+    $('.status a').bind('click',function(event){
+        var $anchor = $(this);
+        /*
+        if you want to use one of the easing effects:
+        $('html, body').stop().animate({
+            scrollLeft: $($anchor.attr('href')).offset().left
+        }, 1500,'easeInOutExpo');
+         */
+        $('.overlay').stop().animate({
+            scrollLeft: $($anchor.attr('.overlay')).position().left
+        }, 1000);
+        event.preventDefault();
+    });
 });
 </script>
