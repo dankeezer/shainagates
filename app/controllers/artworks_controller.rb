@@ -1,5 +1,5 @@
 class ArtworksController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate, :except => [:index]
   skip_before_filter  :verify_authenticity_token
 
   def index
@@ -60,7 +60,7 @@ class ArtworksController < ApplicationController
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      username == "foo" && password == "bar"
+      username == ENV["ADMIN_USERNAME"] && password == ENV["ADMIN_PASSWORD"]
     end
   end
 

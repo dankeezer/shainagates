@@ -46,6 +46,9 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     debug_inspector (0.0.2)
+    dotenv (0.9.0)
+    dotenv-rails (0.9.0)
+      dotenv (= 0.9.0)
     erubis (2.7.0)
     execjs (2.0.2)
     filepicker-rails (1.0.0)
@@ -146,6 +149,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   coffee-rails (~> 4.0.0)
+  dotenv-rails
   filepicker-rails
   jbuilder (~> 1.2)
   jquery-rails
