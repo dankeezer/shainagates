@@ -13,5 +13,32 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.turbolinks
+//= require_self
 //= require_tree .
 
+$(document).ready(function() {
+  $("img").photoResize({
+  });
+});
+
+
+$(document).ready(function() {
+  var oldScrollTop = $('.overlay').scrollTop();
+  var oldScrollLeft = $('.overlay').scrollLeft();
+
+  $('.overlay').scroll(function () { 
+    if(oldScrollTop == $('.overlay').scrollTop()) {
+        $('#status').fadeIn();
+    }
+    else {
+        $('#current').html('Vertical');
+    }
+    oldScrollTop = $('.overlay').scrollTop();
+    oldScrollLeft = $('.overlay').scrollLeft();
+  });
+});
+
+$(document).ready(function() {
+  $("#statement").width($(window).width());
+  $("#contact").width($(window).width());
+});

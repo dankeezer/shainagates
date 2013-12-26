@@ -91,36 +91,4 @@ h6, a:link, a:visited, a:hover {
       </tr>
     </table>
   </div>
-</body>
 
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function() {
-    $("img").photoResize({
-    });
-  });
-</script>
-
-<script type="text/javascript">
-$(document).ready(function() {
-  var oldScrollTop = $('.overlay').scrollTop();
-  var oldScrollLeft = $('.overlay').scrollLeft();
-
-  $('.overlay').scroll(function () { 
-    if(oldScrollTop == $('.overlay').scrollTop()) {
-        $('#status').fadeIn();
-    }
-    else {
-        $('#current').html('Vertical');
-    }
-    oldScrollTop = $('.overlay').scrollTop();
-    oldScrollLeft = $('.overlay').scrollLeft();
-  });
-});
-</script>
-
-<script>
-$(document).ready(function() {
-  $("#statement").width($(window).width());
-  $("#contact").width($(window).width());
-});
-</script>
