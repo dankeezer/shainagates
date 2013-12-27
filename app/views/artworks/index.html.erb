@@ -80,7 +80,7 @@ h6, a:link, a:visited, a:hover {
     <table width="100%" height="100%">
       <tr>
           <% @artworks.each do |artwork| %>
-            <td><div id="<%= artwork.position %>"></a><%= filepicker_image_tag artwork.filepicker_url, fit: "clip" %></div></td>
+            <td><div id="<%= artwork.position %>"></a><%= filepicker_image_tag artwork.filepicker_url, h: 1200, fit: "clip" %></div></td>
           <% end %>
           <td><div id="statement">
             <%= render 'statement' %>
