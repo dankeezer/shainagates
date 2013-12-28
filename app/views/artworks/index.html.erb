@@ -25,18 +25,13 @@ td {
 }
 
 .overlay {
-  display: block;
-/*  width: 1000%;*/
-  position: static;
+  position: relative;
   overflow-x: scroll;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 
 #status { 
-  position: fixed; 
+  position: fixed;
+  z-index: 10; 
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 10pt;
   font-weight: 300;
@@ -48,8 +43,6 @@ td {
 }
 
 #statement, #contact {
-  display: inline-block;
-  top: 0;
   color: white;
   background-color: #aeaeae;
   height: 99%;
@@ -93,3 +86,23 @@ h6, a:link, a:visited, a:hover {
     </table>
   </div>
 
+<script>
+$(function() {
+    $('#status a').bind('click',function(event){
+        var $anchor = $(this);
+        var $overlay = $('.overlay');
+        var scrollLeft = $overlay.scrollLeft() + $($anchor.attr('href')).offset().left;
+        /*
+        if you want to use one of the easing effects:
+        $('html, body').stop().animate({
+            scrollLeft: $($anchor.attr('href')).offset().left
+        }, 1500,'easeInOutExpo');
+         */
+        $('.overlay').stop().animate({
+            scrollLeft: scrollLeft
+        }, 1000);
+
+        event.preventDefault();
+    });
+});
+</script>
