@@ -18,6 +18,7 @@
 
 $(document).ready(function() {
   $("img").photoResize({
+    bottomSpacing:"0"
   });
 });
 
