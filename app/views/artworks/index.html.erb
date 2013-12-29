@@ -22,6 +22,7 @@ td {
   padding: 0px;
   border-spacing: 0px !important;
   margin: 0px; 
+  vertical-align: top;
 }
 
 .overlay {
@@ -51,7 +52,10 @@ h4, a:link, a:visited, a:hover, a:active {
   color: #FFF;
   letter-spacing: 2px;
   font-weight: 100;
-  font-size: 16px;
+  font-size: 1em;
+  line-height: 1em;
+  margin: 0;
+
   text-decoration: none !important;
 }
 
@@ -83,10 +87,10 @@ h6, a:link, a:visited, a:hover, a:active {
           <% @artworks.each do |artwork| %>
             <td><div id="<%= artwork.position %>"></a><%= filepicker_image_tag artwork.filepicker_url, h: 1200, fit: "clip" %></div></td>
           <% end %>
-          <td><div id="statement">
+          <td style="vertical-align:middle"><div id="statement">
             <%= render 'statement' %>
           </div></td>
-          <td><div id="contact">
+          <td style="vertical-align:middle"><div id="contact">
             <%= render 'contact' %>
           </div></td>
       </tr>

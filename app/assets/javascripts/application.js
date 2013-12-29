@@ -24,12 +24,6 @@ $(document).ready(function() {
   });
 });
 
-window.addEventListener("load",function() {
-    setTimeout(function() {
-        document.body.scrollTop || window.scrollTo(0, 1);
-    }, 0);
-});
-
 $(document).ready(function() {
   var oldScrollTop = $('.overlay').scrollTop();
   var oldScrollLeft = $('.overlay').scrollLeft();
