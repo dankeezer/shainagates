@@ -16,10 +16,18 @@
 //= require_self
 //= require_tree .
 
+
+
 $(document).ready(function() {
   $("img").photoResize({
     bottomSpacing:"18"
   });
+});
+
+window.addEventListener("load",function() {
+    setTimeout(function() {
+        document.body.scrollTop || window.scrollTo(0, 1);
+    }, 0);
 });
 
 $(document).ready(function() {
