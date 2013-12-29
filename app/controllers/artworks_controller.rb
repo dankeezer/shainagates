@@ -7,11 +7,7 @@ class ArtworksController < ApplicationController
   end
 
   def admin
-    if params["artwork"].nil?
-
-      # this should be it's own "sort" method but I couldn't fiture it out
-      @artworks = Artwork.order("position")
-    else
+    if params["artwork"].present?
       params[:artwork].each_with_index do |id, index|
         Artwork.update_all({position: index+1}, {id: id})
       end
