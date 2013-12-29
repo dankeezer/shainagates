@@ -18,10 +18,9 @@
 
 $(document).ready(function() {
   $("img").photoResize({
-    bottomSpacing:"0"
+    bottomSpacing:"18"
   });
 });
-
 
 $(document).ready(function() {
   var oldScrollTop = $('.overlay').scrollTop();
