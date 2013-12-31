@@ -78,15 +78,28 @@ h6, a:link, a:visited, a:hover, a:active {
   display: inline;
 }
 
+#lightbox {
+  z-index: -2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0;
+}
+
 </style>
 
 <body>
+
   <div id="status"><h6><a href="#statement">statement</a> | <a href="#contact">contact</a></h6></div>
     <div class="overlay">
       <table width="100%" height="100%">
         <tr>
           <% @artworks.each do |artwork| %>
-            <td><div id="<%= artwork.position %>"></a><%= filepicker_image_tag artwork.filepicker_url, h: 1200, fit: "clip" %></div></td>
+          <% @artwork_position = artwork.position %>
+            <td><div id="<%= artwork.position %>"></a><%= link_to(filepicker_image_tag(artwork.filepicker_url, h: 1200, fit: "clip"), lightbox_artworks_path(artwork), remote: true, method: :get) %></div></td>
           <% end %>
           <td style="vertical-align:middle"><div id="statement">
             <%= render 'statement' %>
@@ -97,6 +110,7 @@ h6, a:link, a:visited, a:hover, a:active {
       </tr>
     </table>
   </div>
+  <div id="lightbox">
 
 <script>
 $(function() {

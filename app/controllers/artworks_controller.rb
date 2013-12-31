@@ -1,4 +1,5 @@
 class ArtworksController < ApplicationController
+  respond_to :html, :js, :json
   before_filter :authenticate, :except => [:index]
   skip_before_filter  :verify_authenticity_token
 
@@ -50,6 +51,11 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.find(params[:id])
     @artwork.destroy
     redirect_to admin_path
+  end
+
+  def lightbox
+    @artwork = Artwork.find_by_id!(params[:id])
+    respond_with(@artwork)
   end
 
   private

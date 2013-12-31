@@ -1,0 +1,33 @@
+
+if ($('#lightbox').css("z-index") == "11") {
+
+  $('#lightbox').animate({opacity:"0"}, 500, function(){
+      $('.overlay').css("overflow-x", "scroll");
+    $('#lightbox').css("z-index","-2");
+    $("#<%= @artwork.position %>").css("z-index","1");
+    $("#<%= @artwork.position %>").css("position","inherit");
+  });
+
+  // var imgHeight = parseInt($('img').css("height")) - 18
+  $('.overlay').animate({"top":"0"}, 500);
+
+  // $(document).ajaxComplete(function(e, xhr, settings){
+  //   $("img").photoResize({
+  //     bottomSpacing:"18"
+  //   });
+  // });
+  // $('img').css("height","inherit");
+
+} else {
+
+  // var imgHeight = parseInt($('img').css("height")) + 18
+
+  $("#<%= @artwork.position %>").css("z-index","12");
+  $("#<%= @artwork.position %>").css("position","relative");
+  $('.overlay').animate({"top":"9"}, 500);
+  $('.overlay').css("overflow-x", "hidden");
+
+  $('#lightbox').css("z-index","11");
+  $('#lightbox').animate({opacity:".5"}, 500);
+
+}
