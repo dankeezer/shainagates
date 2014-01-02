@@ -45,23 +45,20 @@ if ($("#<%= @artwork.position %>").css("z-index") == "100") {
   var paddingWidth = ($(window).width() - $("#<%= @artwork.position %>").width()) / 2
 
   $("#<%= @artwork.position %>").css("z-index","100");
+  $("#<%= @artwork.position %>").css("-webkit-transform", "translate3d(0,0,100)");
   $("#<%= @artwork.position %>").css("position","relative");
-  
   $("#<%= @artwork.position %>").stop().animate({
     paddingTop: "9px",
     paddingLeft:paddingWidth,
     paddingRight:paddingWidth,
-  }, 500, function(){
-    $('#lightbox').css("z-index","1");
-    $('#lightbox').stop().animate({opacity:".5"}, 500);
-  });
-
+  }, 500)
   $('.overlay').css("overflow-x", "hidden");
   $('.overlay').css("-webkit-overflow-scrolling", "hidden");
 
 
 
-
+  $('#lightbox').css("z-index","1");
+  $('#lightbox').stop().animate({opacity:".5"}, 500);
 
 
 }
