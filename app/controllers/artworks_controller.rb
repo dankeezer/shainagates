@@ -1,6 +1,6 @@
 class ArtworksController < ApplicationController
   respond_to :html, :js, :json
-  before_filter :authenticate, :except => [:index, :lightbox]
+  before_filter :authenticate, :only => [:admin, :new, :create, :edit, :update, :descroy, :show]
   skip_before_filter  :verify_authenticity_token
 
   def index
