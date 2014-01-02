@@ -1,5 +1,5 @@
 
-if ($('#lightbox').css("z-index") == "10") {
+if ($("#<%= @artwork.position %>").css("z-index") == "100") {
 
   $('#lightbox').stop().animate({opacity:"0"}, 500, function(){
     $('.overlay').css("overflow-x", "scroll");
@@ -56,8 +56,8 @@ if ($('#lightbox').css("z-index") == "10") {
 
 
 
-  $('#lightbox').css("z-index","10");
-  $('#lightbox').stop().animate({opacity:".5"}, 500);
+  // $('#lightbox').css("z-index","10");
+  // $('#lightbox').stop().animate({opacity:".5"}, 500);
 
 
 }
