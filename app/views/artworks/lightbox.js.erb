@@ -43,7 +43,7 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
 } else {
 
 
-  $('#inner').html("<b><%= @artwork.name %></b>  <%= @artwork.description %>");
+  $('#inner').html("<b><%= @artwork.name %></b>   <%= @artwork.description %>");
 
   var captionWidth = $("#<%= @artwork.position %>").css("width")
   $('#caption').css("width", captionWidth )
@@ -68,7 +68,7 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
   $("#<%= @artwork.position %>").css("-webkit-transform", "translate3d(0,0,100)");
   $("#<%= @artwork.position %>").css("position","relative");
   $("#<%= @artwork.position %>").stop().animate({
-    paddingTop:paddingHeight,
+    paddingTop: "3px",
     paddingLeft:paddingWidth,
     paddingRight:paddingWidth,
   }, 500, function(){
