@@ -1,9 +1,9 @@
 
-if ($('#lightbox').css("z-index") == "11") {
+if ($('#lightbox').css("z-index") == "10") {
 
   $('#lightbox').animate({opacity:"0"}, 500, function(){
     $('.overlay').css("overflow-x", "scroll");
-    $('#lightbox').css("z-index","-2");
+    $('#lightbox').css("z-index","-1");
     $("#<%= @artwork.position %>").css("z-index","1");
     $("#<%= @artwork.position %>").css("position","inherit");
   });
@@ -29,6 +29,14 @@ if ($('#lightbox').css("z-index") == "11") {
 
   // var imgHeight = parseInt($('img').css("height")) + 18
 
+  $("#<%= @artwork.position %>").css("z-index","11");
+  $("#<%= @artwork.position %>").css("position","relative");
+  $("#<%= @artwork.position %>").animate({
+    paddingTop: "9px",
+    paddingLeft:paddingWidth,
+    paddingRight:paddingWidth,
+  }, 500)
+  $('.overlay').css("overflow-x", "hidden");
 
   var $overlay = $('.overlay');
   var scrollLeft = $overlay.scrollLeft() + $('#<%= @artwork.position %>').offset().left;
@@ -40,17 +48,8 @@ if ($('#lightbox').css("z-index") == "11") {
 
   var paddingWidth = ($(window).width() - $("#<%= @artwork.position %>").width()) / 2
 
-  $("#<%= @artwork.position %>").css("z-index","12");
-  $("#<%= @artwork.position %>").css("position","relative");
-  $("#<%= @artwork.position %>").animate({
-    paddingTop: "9px",
-    paddingLeft:paddingWidth,
-    paddingRight:paddingWidth,
-  }, 500)
-  $('.overlay').css("overflow-x", "hidden");
 
-
-  $('#lightbox').css("z-index","11");
+  $('#lightbox').css("z-index","10");
   $('#lightbox').animate({opacity:".5"}, 500);
 
 
