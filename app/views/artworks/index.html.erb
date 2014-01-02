@@ -34,7 +34,7 @@ td {
 
 #status { 
   position: fixed;
-  z-index: 10; 
+  z-index: 100; 
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 10pt;
   font-weight: 300;
@@ -99,7 +99,7 @@ h6, a:link, a:visited, a:hover, a:active {
         <tr>
           <% @artworks.each do |artwork| %>
           <% @artwork_position = artwork.position %>
-            <td><div id="<%= artwork.position %>"></a><%= link_to(filepicker_image_tag(artwork.filepicker_url, h: 1200, fit: "clip"), lightbox_artworks_path(artwork), remote: true, method: :get) %></div></td>
+            <td><div id="<%= artwork.position %>"></a><%= link_to(filepicker_image_tag(artwork.filepicker_url, h: 1200, fit: "clip"), lightbox_path(artwork), remote: true, method: :get) %></div></td>
           <% end %>
           <td style="vertical-align:middle"><div id="statement">
             <%= render 'statement' %>
@@ -131,6 +131,8 @@ $(function() {
         event.preventDefault();
     });
 });
+
+
 </script>
 
 <%= javascript_include_tag "hidebar" %>
