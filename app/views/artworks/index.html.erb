@@ -48,6 +48,25 @@ td {
   display: none;
 }
 
+#caption {
+  z-index: 1;
+  color: #aeaeae;
+  position: fixed;
+  border-top: 5px solid #575757;
+  bottom: 0;
+  background-color: white;
+  opacity: 0;
+  margin-bottom: 7.5px;
+}
+
+#inner {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  font-weight: 300;
+  padding: 5px;
+  padding-left: 9px;
+}
+
 
 #statement, #contact {
 }
@@ -113,7 +132,12 @@ h6, a:link, a:visited, a:hover, a:active {
       </tr>
     </table>
   </div>
-  <div id="lightbox">
+  <div id="lightbox"></div>
+  <div id="caption"> 
+  <div id="inner">
+  <%= render "caption" %>
+  </div>
+  </div>
 
 <script>
 $(function() {

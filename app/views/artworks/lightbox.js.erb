@@ -18,6 +18,7 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
 
   // $('.overlay').animate({"top":"0"}, 500);
   $('#status').stop().animate({opacity:"1"}, 500);
+  $('#caption').stop().animate({opacity:"0"}, 500);
 
   $("#<%= @artwork.position %>").stop().animate({
     paddingTop: "0px",
@@ -41,6 +42,14 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
 
 } else {
 
+
+  $('#inner').html("<b><%= @artwork.name %></b>  <%= @artwork.description %>");
+
+  var captionWidth = $("#<%= @artwork.position %>").css("width")
+  $('#caption').css("width", captionWidth )
+  $('#caption').css("margin-left", paddingWidth)
+
+
   // var imgHeight = parseInt($('img').css("height")) + 18
 
   // var paddingWidth = ($(window).width() - $("#<%= @artwork.position %>").width()) / 2
@@ -62,10 +71,14 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
     paddingTop:paddingHeight,
     paddingLeft:paddingWidth,
     paddingRight:paddingWidth,
-  }, 500);
+  }, 500, function(){
+    $('#caption').stop().animate({opacity:"1"}, 500);
+  });
 
   $('.overlay').css("overflow-x", "hidden");
   $('.overlay').css("-webkit-overflow-scrolling", "hidden");
+
+
 
 
 
