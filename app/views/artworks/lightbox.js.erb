@@ -43,12 +43,14 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
 
 
   var paddingWidth = ($(window).width() - $("#<%= @artwork.position %>").width()) / 2
+  var paddingHeight = ($(window).height() - $("#<%= @artwork.position %>").height()) / 2
+
 
   $("#<%= @artwork.position %>").css("z-index","0");
   $("#<%= @artwork.position %>").css("-webkit-transform", "translate3d(0,0,100)");
   $("#<%= @artwork.position %>").css("position","relative");
   $("#<%= @artwork.position %>").stop().animate({
-    paddingTop: "9px",
+    paddingTop:paddingHeight,
     paddingLeft:paddingWidth,
     paddingRight:paddingWidth,
   }, 500);
