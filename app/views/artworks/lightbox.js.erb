@@ -1,11 +1,11 @@
 
-if ($("#<%= @artwork.position %>").css("z-index") == "100") {
+if ($("#<%= @artwork.position %>").css("z-index") == "0") {
 
   $('#lightbox').stop().animate({opacity:"0"}, 500, function(){
     $('.overlay').css("overflow-x", "scroll");
     $('.overlay').css("-webkit-overflow-scrolling", "touch");
-    $('#lightbox').css("z-index","-1");
-    $("#<%= @artwork.position %>").css("z-index","1");
+    $('#lightbox').css("z-index","-5");
+    $("#<%= @artwork.position %>").css("z-index","-4");
     $("#<%= @artwork.position %>").css("position","inherit");
   });
 
@@ -44,8 +44,8 @@ if ($("#<%= @artwork.position %>").css("z-index") == "100") {
 
   var paddingWidth = ($(window).width() - $("#<%= @artwork.position %>").width()) / 2
 
-  $("#<%= @artwork.position %>").css("z-index","100");
-  $("#<%= @artwork.position %>").css("-webkit-transform", "translate3d(0,0,100px)");
+  $("#<%= @artwork.position %>").css("z-index","0");
+  $("#<%= @artwork.position %>").css("-webkit-transform", "translate3d(0,0,100)");
   $("#<%= @artwork.position %>").css("position","relative");
   $("#<%= @artwork.position %>").stop().animate({
     paddingTop: "9px",
@@ -58,7 +58,7 @@ if ($("#<%= @artwork.position %>").css("z-index") == "100") {
 
 
 
-  $('#lightbox').css("z-index","1");
+  $('#lightbox').css("z-index","-3");
   $('#lightbox').stop().animate({opacity:".5"}, 500);
 
 
