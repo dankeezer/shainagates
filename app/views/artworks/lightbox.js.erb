@@ -69,14 +69,14 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
   $("#<%= @artwork.position %>").css("-webkit-transform", "translate3d(0,0,100)");
   $("#<%= @artwork.position %>").css("position","relative");
   $("#<%= @artwork.position %>").stop().animate({
-    top: "-5px",
     paddingLeft:paddingWidth,
-    paddingRight:paddingWidth,
+    paddingRight:paddingWidth
   }, 500, function(){
     $('#caption').stop().animate({opacity:"1"}, 500);
+    $('#topMask').stop().animate({top:"0"}, 500);
+    $("#<%= @artwork.position %>").stop().animate({top: "-5px"}, 500);
   });
 
-  $('#topMask').stop().animate({top:"0"}, 500);
   $('.overlay').css("overflow-x", "hidden");
   $('.overlay').css("-webkit-overflow-scrolling", "hidden");
 
