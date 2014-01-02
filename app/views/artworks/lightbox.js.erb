@@ -77,6 +77,7 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
     $('#caption').stop().animate({bottom:"0"}, 500);
     $('#topMask').stop().animate({top:"0"}, 500);
     $("#<%= @artwork.position %>").stop().animate({top: "-5px"}, 500);
+    $('#topMask').css("opacity","1")
   });
 
   $('.overlay').css("overflow-x", "hidden");
