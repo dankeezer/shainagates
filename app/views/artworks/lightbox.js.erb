@@ -62,7 +62,7 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
   event.preventDefault();
 
   $('#status').stop().animate({opacity:"0"}, 500);
-  $('#caption').stop().animate({opacity:"1"}, 500);
+  $('#caption').css("opacity","1");
 
   // var paddingWidth = ($(window).width() - $("#<%= @artwork.position %>").width()) / 2
 
@@ -71,11 +71,11 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
   $("#<%= @artwork.position %>").css("-webkit-transform", "translate3d(0,0,100)");
   $("#<%= @artwork.position %>").css("position","relative");
   $("#<%= @artwork.position %>").stop().animate({
-    paddingTop:paddingHeight,
+    paddingTop:"11",
     paddingLeft:paddingWidth,
     paddingRight:paddingWidth
   }, 500, function(){
-
+    $('#caption').stop().animate({top:"0"}, 500);
     // $('#bottomMask').stop().animate({bottom:"0"}, 500);
     // $("#<%= @artwork.position %>").stop().animate({bottom: "-5px"}, 500);
     // $('#bottomMask').css("opacity","1")
@@ -83,7 +83,7 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
 
   $('.overlay').css("overflow-x", "hidden");
   $('.overlay').css("-webkit-overflow-scrolling", "hidden");
-  $('#caption').stop().animate({top:"0"}, 500);
+
 
   $('#lightbox').css("z-index","-3");
   $('#lightbox').stop().animate({opacity:".5"}, 500);
