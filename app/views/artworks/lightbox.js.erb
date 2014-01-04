@@ -16,12 +16,10 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
     $("#<%= @artwork.position %>").css("position","inherit");
   });
 
-  // $('.overlay').animate({"top":"0"}, 500);
   $('#status').stop().animate({opacity:"1"}, 500);
 
   var captionHide =  String(((parseInt($("#caption").css("height")) + 10) * -1) + "px")
   $('#caption').stop().animate({top:captionHide}, 500);
-  // $('#bottomMask').stop().animate({bottom:"-5"}, 500);
 
   $("#<%= @artwork.position %>").stop().animate({
     paddingTop: "0px",
@@ -34,17 +32,7 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
   }, 500)
   event.preventDefault();
 
-
-
-  // $(document).ajaxComplete(function(e, xhr, settings){
-  //   $("img").photoResize({
-  //     bottomSpacing:"18"
-  //   });
-  // });
-  // $('img').css("height","inherit");
-
 } else {
-
 
   $('#inner').html("<b><%= @artwork.name %></b> <%= @artwork.description %>");
 
@@ -52,10 +40,6 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
   $('#caption').css("width", captionWidth )
   $('#caption').css("margin-left", paddingWidth)
 
-
-  // var imgHeight = parseInt($('img').css("height")) + 18
-
-  // var paddingWidth = ($(window).width() - $("#<%= @artwork.position %>").width()) / 2
   $('.overlay').stop().animate({
     scrollLeft: scrollLeft
   }, 500)
@@ -63,9 +47,6 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
 
   $('#status').stop().animate({opacity:"0"}, 500);
   $('#caption').css("opacity","1");
-
-  // var paddingWidth = ($(window).width() - $("#<%= @artwork.position %>").width()) / 2
-
 
   $("#<%= @artwork.position %>").css("z-index","0");
   $("#<%= @artwork.position %>").css("-webkit-transform", "translate3d(0,0,100)");
@@ -76,9 +57,6 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
     paddingRight:paddingWidth
   }, 500, function(){
     $('#caption').stop().animate({top:"0"}, 500);
-    // $('#bottomMask').stop().animate({bottom:"0"}, 500);
-    // $("#<%= @artwork.position %>").stop().animate({bottom: "-5px"}, 500);
-    // $('#bottomMask').css("opacity","1")
   });
 
   $('.overlay').css("overflow-x", "hidden");
@@ -87,6 +65,4 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
 
   $('#lightbox').css("z-index","-3");
   $('#lightbox').stop().animate({opacity:".5"}, 500);
-
-
 }
