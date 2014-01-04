@@ -125,29 +125,30 @@ h6, a:link, a:visited, a:hover, a:active {
 <body>
 
   <div id="status"><h6><a href="#statement">statement</a> | <a href="#contact">contact</a></h6></div>
-    <div class="overlay">
-      <table width="100%" height="100%">
-        <tr>
-          <% @artworks.each do |artwork| %>
-          <% @artwork_position = artwork.position %>
-            <td>
-            <div id="<%= artwork.position %>" style="z-index:-4" data-update-url=>
-            <%= link_to(filepicker_image_tag(artwork.filepicker_url, h: 1200, fit: "clip"), lightbox_artworks_path(artwork), remote: true, method: :get) %></div>
-            </td>
-          <% end %>
-          <td style="vertical-align:middle"><div id="statement">
-            <%= render 'statement' %>
-          </div></td>
-          <td style="vertical-align:middle"><div id="contact">
-            <%= render 'contact' %>
-          </div></td>
-      </tr>
-    </table>
-  </div>
   <div id="lightbox"></div>
   <div id="caption"> 
     <div id="inner">
     </div>
+  </div>
+
+  <div class="overlay">
+    <table width="100%" height="100%">
+      <tr>
+        <% @artworks.each do |artwork| %>
+          <% @artwork_position = artwork.position %>
+          <td>
+            <div id="<%= artwork.position %>" style="z-index:-4"> 
+              <%= link_to(filepicker_image_tag(artwork.filepicker_url, h: 1200, fit: "clip"), lightbox_artworks_path(artwork), remote: true, method: :get) %></div>
+          </td>
+        <% end %>
+        <td style="vertical-align:middle"><div id="statement">
+          <%= render 'statement' %>
+        </div></td>
+        <td style="vertical-align:middle"><div id="contact">
+          <%= render 'contact' %>
+        </div></td>
+      </tr>
+    </table>
   </div>
 
 
