@@ -124,7 +124,13 @@ h6, a:link, a:visited, a:hover, a:active {
 
 <body>
 
-  <div id="status"><h6><a href="#statement">statement</a> | <a href="#contact">contact</a></h6></div>
+  <div id="status">
+    <h6>
+      <a href="#statement">statement</a> | 
+      <a href="#exhibitions">exhibitions</a> | 
+      <a href="#contact">contact</a>
+    </h6>
+  </div>
   <div id="lightbox"></div>
   <div id="caption"> 
     <div id="inner">
@@ -143,6 +149,9 @@ h6, a:link, a:visited, a:hover, a:active {
         <% end %>
         <td style="vertical-align:middle"><div id="statement">
           <%= render 'statement' %>
+        </div></td>
+        <td style="vertical-align:middle"><div id="exhibitions">
+          <%= render 'exhibitions' %>
         </div></td>
         <td style="vertical-align:middle"><div id="contact">
           <%= render 'contact' %>

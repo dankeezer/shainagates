@@ -42,5 +42,6 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $("#statement").width($(window).width());
+  $("#exhibitions").width($(window).width());
   $("#contact").width($(window).width());
 });
