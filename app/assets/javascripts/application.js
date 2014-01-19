@@ -17,11 +17,14 @@
 //= require_tree .
 
 
-
 $(document).ready(function() {
   $("img").photoResize({
-    bottomSpacing:"18"
+    bottomSpacing:"0"
   });
+
+  $('.overlay').mousewheel(function(event, delta) {
+    this.scrollLeft -= (delta * 2);
+   });
 });
 
 $(document).ready(function() {

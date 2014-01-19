@@ -1,5 +1,6 @@
 <%= javascript_include_tag "http://code.jquery.com/jquery-latest.min.js" %>
 <%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
+<%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.js" %>
 <%= javascript_include_tag "jquery-photo-resize" %>
 
 <style type = "text/css">
@@ -32,7 +33,7 @@ img {
 
 .overlay {
   position: relative;
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 }
