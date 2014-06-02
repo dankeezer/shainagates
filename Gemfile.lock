@@ -72,6 +72,7 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.2)
+    pg (0.17.1)
     polyglot (0.3.3)
     protected_attributes (1.0.3)
       activemodel (>= 4.0.0, < 5.0)
@@ -153,6 +154,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
+  pg
   protected_attributes
   pry
   rails (= 4.0.0)
