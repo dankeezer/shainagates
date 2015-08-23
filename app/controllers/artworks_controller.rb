@@ -5,7 +5,7 @@ class ArtworksController < ApplicationController
 
   def index
   @artworks = Artwork.order("position")
-  @exhibitions = Exhibition.order("starts_at")   
+  @exhibitions = Exhibition.order("starts_at").reverse  
 
   end
 
@@ -16,7 +16,7 @@ class ArtworksController < ApplicationController
       end
     end
     @artworks = Artwork.order("position")
-    @exhibitions = Exhibition.order("starts_at")
+    @exhibitions = Exhibition.order("starts_at").reverse
 
   end
 
