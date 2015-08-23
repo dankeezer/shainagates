@@ -6,6 +6,8 @@ ShainaGates::Application.routes.draw do
     end
   end
 
+  resources :exhibitions
+
   root 'artworks#index'
 
   get 'admin' => 'artworks#admin'

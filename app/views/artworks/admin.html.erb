@@ -14,10 +14,11 @@ body {
 }
 
 .fa {
-  font-size: 20pt;
+  /*font-size: 20pt;*/
   vertical-align: middle;
   color: #FFFFFF;
   text-decoration: none;
+  padding-bottom:2px;
 }
 
 .fa:hover {
@@ -28,27 +29,25 @@ body {
   padding-top: 3px;
 }
 
-table
-{
-border-collapse:collapse;
+table {
+  border-collapse:collapse;
+  margin-bottom: 50px;
 }
 
-table,th, td
-{
-
-padding: 5px;
-text-align: center;
-
+table,th, td {
+  padding: 5px;
+  text-align: center;
 }
 
-.description{
+.description {
   text-align: left;
 }
 
 tr {
   background-color: #aeaeae;
   border: 4px solid white;
-  cursor: pointer;
+  /*cursor: pointer;*/
+  width: 700px;
 }
 
 ul {
@@ -67,30 +66,40 @@ h4, a:link, a:visited, a:hover{
   letter-spacing: 2px;
   font-weight: 300;
   font-size: 20px;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 h4:link {
   color: #FFFFFF;
 }
 
+.inline_link {
+  font-weight: inherit !important;
+  font-size: inherit !important;
+  letter-spacing: inherit !important;
+  text-decoration: underline !important;
+}
+
+
+
+
 </style>
 
 <body>
 <table>
   <tr class="table_header">
-    <td width="162px"><h4>thumbnail</h4></td>
-    <td width="100px"><h4>name</h4></td>
-    <td width="300px" class="description"><h4>description</h4></td>
-    <td width="75px"></td>
+    <td width="25%"><h4>thumbnail</h4></td>
+    <td width="15%"><h4>name</h4></td>
+    <td width="50%" class="description"><h4>description</h4></td>
+    <td width="10%"></td>
   </tr>
   <tbody id="artworks" data-update-url="<% sort_artworks_url %>">
     <% @artworks.each do |artwork| %>
       <%= content_tag_for :tr, artwork do %>
-        <td width="162px"><%= filepicker_image_tag artwork.filepicker_url, w: 160, h: 160, fit: 'clip' %></td>
-        <td width="100px"><%= artwork.name  %></td>
-        <td width="300px" class="description"> <%= artwork.description %></td>
-        <td width="75px"><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_artwork_path(artwork) %> <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, artwork_path(artwork), method: :delete %></h4></td>
+        <td><%= filepicker_image_tag artwork.filepicker_url, w: 160, h: 160, fit: 'clip' %></td>
+        <td><%= artwork.name  %></td>
+        <td class="description"> <%= artwork.description %></td>
+        <td><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_artwork_path(artwork) %> <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, artwork_path(artwork), method: :delete %></h4></td>
       <% end %>
     <% end %>
   </tbody>
@@ -98,6 +107,30 @@ h4:link {
   <td><h4><%= link_to "new artwork", new_artwork_path(@artwork) %></h4></td></tr>
 </table>
 
+<table>
+  <tr width="700px" class="table_header">
+    <td width="25%"><h4>name</h4></td>
+    <td width="10%"><h4>starts</h4></td>
+    <td width="10%"><h4>ends</h4></td>
+    <td width="25%"><h4>location</h4></td>
+    <td width="25%"><h4>link</h4></td>
+    <td width="10%"></td>
+  </tr>
+  <tbody id="artworks" data-update-url="<% sort_artworks_url %>">
+    <% @exhibitions.each do |exhibition| %>
+      <%= content_tag_for :tr, exhibition do %>
+        <td><%= exhibition.name %></td>
+        <td><%= exhibition.starts_at.to_formatted_s(:month_and_year) %></td>
+        <td><%= exhibition.ends_at.to_formatted_s(:month_and_year) %></td>
+        <td><%= exhibition.location %></td>
+        <td><%= link_to exhibition.link, exhibition.link, :target => "_blank", :class => "inline_link" %></td>
+        <td><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_exhibition_path(exhibition) %> <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, exhibition_path(exhibition), method: :delete %></h4></td>
+      <% end %>
+    <% end %>
+  </tbody>
+  <tr>
+  <td><h4><%= link_to "new exhibition", new_exhibition_path(@exhibition) %></h4></td></tr>
+</table>
 
 </body>
 </center>

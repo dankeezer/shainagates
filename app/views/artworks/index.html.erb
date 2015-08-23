@@ -101,13 +101,14 @@ h5, a:link, a:visited, a:hover, a:active {
   display: inline;
 }
 
-h6, a:link, a:visited, a:hover, a:active {
+.nav a:link{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 10pt;
   font-weight: 300;
   letter-spacing: 2px;
   color: #000;
-  display: inline;
+  display: inline !important;
+  margin: auto !important;
 }
 
 #lightbox {
@@ -126,11 +127,12 @@ h6, a:link, a:visited, a:hover, a:active {
 <body>
 
   <div id="status">
-    <h6>
+    <h6 class="nav" style="margin:auto">
       <a href="#exhibitions">exhibitions</a> | 
       <a href="#contact">contact</a>
     </h6>
   </div>
+
   <div id="lightbox"></div>
   <div id="caption"> 
     <div id="inner">

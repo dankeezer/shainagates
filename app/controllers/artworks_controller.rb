@@ -4,7 +4,9 @@ class ArtworksController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   def index
-   @artworks = Artwork.order("position")
+  @artworks = Artwork.order("position")
+  @exhibitions = Exhibition.order("starts_at")   
+
   end
 
   def admin
@@ -14,6 +16,8 @@ class ArtworksController < ApplicationController
       end
     end
     @artworks = Artwork.order("position")
+    @exhibitions = Exhibition.order("starts_at")
+
   end
 
   def new
@@ -22,6 +26,8 @@ class ArtworksController < ApplicationController
 
   def show
     @artwork = Artwork.find(params[:id])
+    
+
   end
 
   def create

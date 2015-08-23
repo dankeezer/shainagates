@@ -3,12 +3,12 @@
 <%= filepicker_js_include_tag %>
 
 
-<% if @artwork.errors.any? %>
+<% if @exhibition.errors.any? %>
   <tr>
     <td>
-      <h2>There were errors saving your artwork</h2>
+      <h2>There were errors saving your exhibition</h2>
       <ul>
-        <% @artwork.errors.full_messages.each do |msg| %>
+        <% @exhibition.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -18,16 +18,23 @@
 
 <tbody>
 
-  <%= simple_form_for @artwork do |f| %>
+  <%= simple_form_for @exhibition do |f| %>
     <tr><td>
       <%= f.text_field :name, :placeholder => "Name" %>
     </tr></td>
     <tr><td>
-      <%= f.text_field :description, :placeholder => "Description" %>
+      <%= f.input :starts_at, as: :date, :placeholder => "Starts At" %>
+    </tr></td>
+    <tr><td>
+      <%= f.input :ends_at, as: :date, :placeholder => "Ends At" %>
+    </tr></td>    
+    <tr><td>    
+      <%= f.text_field :location, :placeholder => "Location" %>
     </tr></td>
     <tr><td>    
-      <%= f.filepicker_field :filepicker_url, dragdrop: true %> <!-- User#filepicker_url is a regular string column -->
+      <%= f.text_field :link, :placeholder => "Link" %>
     </tr></td>
+
     <tr>
       <td>    
         <%= f.submit %>
