@@ -12,19 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.turbolinks
 //= require_self
 //= require_tree .
 
 
 $(document).ready(function() {
+  $("#statement").width($(window).width());
+  $("#exhibitions").width($(window).width());
+  $("#contact").width($(window).width());
+});
+
+$(document).ready(function() {
   $("img").photoResize({
     bottomSpacing:"0"
   });
-
-  $('.overlay').mousewheel(function(event, delta) {
-    this.scrollLeft -= (delta * 2);
-   });
 });
 
 $(document).ready(function() {
@@ -43,8 +44,3 @@ $(document).ready(function() {
   });
 });
 
-$(document).ready(function() {
-  $("#statement").width($(window).width());
-  $("#exhibitions").width($(window).width());
-  $("#contact").width($(window).width());
-});

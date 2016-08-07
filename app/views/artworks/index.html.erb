@@ -1,6 +1,5 @@
 <%= javascript_include_tag "http://code.jquery.com/jquery-latest.min.js" %>
 <%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
-<%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.js" %>
 <%= javascript_include_tag "jquery-photo-resize" %>
 
 <style type = "text/css">
@@ -33,7 +32,7 @@ img {
 
 .overlay {
   position: relative;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 }
@@ -145,8 +144,9 @@ h5, a:link, a:visited, a:hover, a:active {
         <% @artworks.each do |artwork| %>
           <% @artwork_position = artwork.position %>
           <td>
-            <div id="<%= artwork.position %>" style="z-index:-4"> 
-              <%= link_to(filepicker_image_tag(artwork.filepicker_url), lightbox_artworks_path(artwork), remote: true, method: :get) %></div>
+            <%= content_tag(:div, id: artwork.position.to_s, style: "z-index:-4") do %>          
+              <%= link_to(filepicker_image_tag(artwork.filepicker_url), lightbox_artworks_path(artwork), remote: true, method: :get) %>
+            <% end %>
           </td>
         <% end %>
         <td style="vertical-align:middle"><div id="exhibitions">

@@ -14,9 +14,6 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
     $('#lightbox').css("z-index","-5");
     $("#<%= @artwork.position %>").css("z-index","-4");
     $("#<%= @artwork.position %>").css("position","inherit");
-    $('.overlay').mousewheel(function(event, delta) {
-      this.scrollLeft -= (delta * 2);
-    });
   });
 
   $('#status').stop().animate({opacity:"1"}, 500);
@@ -38,8 +35,6 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
 
 } else {
 
-
-  $('.overlay').unbind('mousewheel');
  
   $('#inner').html("<b><%= @artwork.name %></b> <%= @artwork.description %>");
 

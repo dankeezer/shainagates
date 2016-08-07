@@ -1,15 +1,18 @@
 source 'https://rubygems.org'
+ruby '2.1.2'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
-gem 'sass-rails', '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'rails', '4.1.2'
+gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
 gem 'protected_attributes'
 
-gem 'jquery-turbolinks'
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 gem 'filepicker-rails'
+gem 'pg'
+gem 'puma'
 
 gem 'bootstrap-sass'
 
@@ -26,11 +29,9 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'pg'
 end
 
 group :development do
-  gem 'sqlite3'
   gem 'pry'
   gem 'better_errors'
   gem 'binding_of_caller'

@@ -12,7 +12,7 @@ class ArtworksController < ApplicationController
   def admin
     if params["artwork"].present?
       params[:artwork].each_with_index do |id, index|
-        Artwork.update_all({position: index+1}, {id: id})
+        Artwork.where(id: id).update_all({position: index+1})
       end
     end
     @artworks = Artwork.order("position")
@@ -73,7 +73,7 @@ class ArtworksController < ApplicationController
   end
 
   def artwork_params
-    params.require('artwork').permit(:name, :description, :filepicker_url)
+    params.require('artwork').permit(:name, :description, :filepicker_url, :position)
   end
 
 end
