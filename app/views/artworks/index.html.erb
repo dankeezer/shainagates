@@ -141,10 +141,9 @@ h5, a:link, a:visited, a:hover, a:active {
   <div class="overlay">
     <table width="100%" height="100%">
       <tr>
-        <% @artworks.each_with_index do |artwork, index| %>
-          <% artwork_position = artwork.position.present? ? artwork.position : index %>
+        <% @artworks.each do |artwork| %>
           <td>
-            <%= content_tag(:div, id: artwork_position.to_s, style: "z-index:-4") do %>          
+            <%= content_tag(:div, id: artwork.position.to_s, style: "z-index:-4") do %>          
               <%= link_to(filepicker_image_tag(artwork.filepicker_url), lightbox_artworks_path(artwork), remote: true, method: :get) %>
             <% end %>
           </td>

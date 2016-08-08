@@ -4,9 +4,8 @@ class ArtworksController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   def index
-  @artworks = Artwork.order("position")
-  @exhibitions = Exhibition.order("starts_at").reverse  
-
+    @artworks = Artwork.order("position")
+    @exhibitions = Exhibition.order("starts_at").reverse
   end
 
   def admin
