@@ -1,19 +1,19 @@
 
-var paddingWidth = ($(window).width() - $("#<%= @artwork.position %>").width()) / 2
-var paddingHeight = ($(window).height() - $("#<%= @artwork.position %>").height()) / 2
+var paddingWidth = ($(window).width() - $("#<%= @position %>").width()) / 2
+var paddingHeight = ($(window).height() - $("#<%= @position %>").height()) / 2
 
 var $overlay = $('.overlay');
-var scrollLeft = $overlay.scrollLeft() + $('#<%= @artwork.position %>').offset().left
+var scrollLeft = $overlay.scrollLeft() + $('#<%= @position %>').offset().left
 
 
-if ($("#<%= @artwork.position %>").css("z-index") == "0") {
+if ($("#<%= @position %>").css("z-index") == "0") {
 
   $('#lightbox').stop().animate({opacity:"0"}, 500, function(){
     $('.overlay').css("overflow-x", "scroll");
     $('.overlay').css("-webkit-overflow-scrolling", "touch");
     $('#lightbox').css("z-index","-5");
-    $("#<%= @artwork.position %>").css("z-index","-4");
-    $("#<%= @artwork.position %>").css("position","inherit");
+    $("#<%= @position %>").css("z-index","-4");
+    $("#<%= @position %>").css("position","inherit");
   });
 
   $('#status').stop().animate({opacity:"1"}, 500);
@@ -21,7 +21,7 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
   var captionHide =  String(((parseInt($("#caption").css("height")) + 10) * -1) + "px")
   $('#caption').stop().animate({top:captionHide}, 500);
 
-  $("#<%= @artwork.position %>").stop().animate({
+  $("#<%= @position %>").stop().animate({
     paddingTop: "0px",
     paddingLeft:"0px",
     paddingRight:"0px"
@@ -38,7 +38,7 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
  
   $('#inner').html("<b><%= @artwork.name %></b> <%= @artwork.description %>");
 
-  var captionWidth = $("#<%= @artwork.position %>").css("width")
+  var captionWidth = $("#<%= @position %>").css("width")
   $('#caption').css("width", captionWidth )
   $('#caption').css("margin-left", paddingWidth)
 
@@ -50,10 +50,10 @@ if ($("#<%= @artwork.position %>").css("z-index") == "0") {
   $('#status').stop().animate({opacity:"0"}, 500);
   $('#caption').css("opacity","1");
 
-  $("#<%= @artwork.position %>").css("z-index","0");
-  $("#<%= @artwork.position %>").css("-webkit-transform", "translate3d(0,0,100)");
-  $("#<%= @artwork.position %>").css("position","relative");
-  $("#<%= @artwork.position %>").stop().animate({
+  $("#<%= @position %>").css("z-index","0");
+  $("#<%= @position %>").css("-webkit-transform", "translate3d(0,0,100)");
+  $("#<%= @position %>").css("position","relative");
+  $("#<%= @position %>").stop().animate({
     paddingTop:"11",
     paddingLeft:paddingWidth,
     paddingRight:paddingWidth

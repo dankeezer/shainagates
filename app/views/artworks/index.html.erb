@@ -143,7 +143,8 @@ h5, a:link, a:visited, a:hover, a:active {
       <tr>
         <% @artworks.each do |artwork| %>
           <td>
-            <%= content_tag(:div, id: artwork.position.to_s, style: "z-index:-4") do %>          
+            <% position = (artwork.position == 9999 ? Artwork.all.index(artwork) : artwork.position) %>
+            <%= content_tag(:div, id: position.to_s, style: "z-index:-4") do %>          
               <%= link_to(filepicker_image_tag(artwork.filepicker_url), lightbox_artworks_path(artwork), remote: true, method: :get) %>
             <% end %>
           </td>

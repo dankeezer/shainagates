@@ -4,7 +4,11 @@ class ArtworksController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   def index
-    @artworks = Artwork.order("position")
+    if Artwork.where(:position => 9999).present?
+      @artworks = Artwork.order(:created_at)
+    else      
+      @artworks = Artwork.order(:position)
+    end
     @exhibitions = Exhibition.order("starts_at").reverse
   end
 
@@ -16,7 +20,6 @@ class ArtworksController < ApplicationController
     end
     @artworks = Artwork.order("position")
     @exhibitions = Exhibition.order("starts_at").reverse
-
   end
 
   def new
@@ -60,6 +63,7 @@ class ArtworksController < ApplicationController
 
   def lightbox
     @artwork = Artwork.find_by_id!(params[:id])
+    @position = (@artwork.position == 9999 ? Artwork.all.index(@artwork) : @artwork.position)
     respond_with(@artwork)
   end
 
