@@ -70,5 +70,4 @@ class ArtworksController < ApplicationController
   def artwork_params
     params.require('artwork').permit(:name, :description, :filepicker_url, :position)
   end
-
 end
