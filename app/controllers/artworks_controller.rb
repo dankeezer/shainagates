@@ -9,7 +9,7 @@ class ArtworksController < ApplicationController
     else
       @artworks = Artwork.order(:position)
     end
-    @exhibitions = Exhibition.order("starts_at").reverse
+    @cv = CurriculumVitae.first
   end
 
   def admin

@@ -1,4 +1,5 @@
 ShainaGates::Application.routes.draw do
+	resources :curriculum_vitaes
 
   resources :artworks
   resources :exhibitions
@@ -7,5 +8,4 @@ ShainaGates::Application.routes.draw do
 
   get 'admin' => 'artworks#admin'
   post 'admin' => 'artworks#admin', as: 'sort_artworks'
-
 end
