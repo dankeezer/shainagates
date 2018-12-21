@@ -14,33 +14,3 @@
 //= require jquery_ujs
 //= require_self
 //= require_tree .
-
-
-$(document).ready(function() {
-  $("#statement").width($(window).width());
-  $("#exhibitions").width($(window).width());
-  $("#contact").width($(window).width());
-});
-
-$(document).ready(function() {
-  $("img").photoResize({
-    bottomSpacing:"0"
-  });
-});
-
-$(document).ready(function() {
-  var oldScrollTop = $('.overlay').scrollTop();
-  var oldScrollLeft = $('.overlay').scrollLeft();
-
-  $('.overlay').scroll(function () { 
-    if(oldScrollTop == $('.overlay').scrollTop()) {
-        $('#status').fadeIn();
-    }
-    else {
-        $('#current').html('Vertical');
-    }
-    oldScrollTop = $('.overlay').scrollTop();
-    oldScrollLeft = $('.overlay').scrollLeft();
-  });
-});
-
