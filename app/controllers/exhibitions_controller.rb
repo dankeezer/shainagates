@@ -1,7 +1,6 @@
 class ExhibitionsController < ApplicationController
   respond_to :html, :js, :json
-  # before_filter :authenticate, :except => [:index, :lightbox]
-  skip_before_filter  :verify_authenticity_token  
+  skip_before_filter  :verify_authenticity_token
 
 	def new
     @exhibition = Exhibition.new

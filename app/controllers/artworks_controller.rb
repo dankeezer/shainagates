@@ -1,12 +1,12 @@
 class ArtworksController < ApplicationController
   respond_to :html, :js, :json
-  before_filter :authenticate, :except => [:index, :lightbox]
+  before_filter :authenticate, :except => [:index]
   skip_before_filter  :verify_authenticity_token
 
   def index
     if Artwork.where(:position => 9999).present?
       @artworks = Artwork.order(:created_at)
-    else      
+    else
       @artworks = Artwork.order(:position)
     end
     @exhibitions = Exhibition.order("starts_at").reverse
@@ -28,8 +28,6 @@ class ArtworksController < ApplicationController
 
   def show
     @artwork = Artwork.find(params[:id])
-    
-
   end
 
   def create
@@ -59,12 +57,6 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.find(params[:id])
     @artwork.destroy
     redirect_to admin_path
-  end
-
-  def lightbox
-    @artwork = Artwork.find_by_id!(params[:id])
-    @position = (@artwork.position == 9999 ? Artwork.all.index(@artwork) : @artwork.position)
-    respond_with(@artwork)
   end
 
   private

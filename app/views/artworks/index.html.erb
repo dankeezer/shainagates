@@ -98,8 +98,8 @@ h5, a:link, a:visited, a:hover, a:active {
 
   <div id="status">
     <h6 class="nav" style="margin:auto">
-      <a href="#exhibitions">exhibitions</a> | 
-      <a href="#contact">contact</a>
+      <a href="#contact">contact</a> | 
+      <a href="#cv">c/v</a>
     </h6>
   </div>
 
@@ -114,11 +114,11 @@ h5, a:link, a:visited, a:hover, a:active {
             <% end %>
           </td>
         <% end %>
-        <td style="vertical-align:middle"><div id="exhibitions">
-          <%= render 'exhibitions' %>
-        </div></td>
         <td style="vertical-align:middle"><div id="contact">
           <%= render 'contact' %>
+        </div></td>
+        <td style="vertical-align:middle"><div id="cv">
+          <%= render 'cv' %>
         </div></td>
       </tr>
     </table>
@@ -167,7 +167,7 @@ h5, a:link, a:visited, a:hover, a:active {
   window.onload =
     photoResize();
     statusFadeIn();
-    $("#exhibitions").width($(window).width());
     $("#contact").width($(window).width());
+    $("#cv").width($(window).width());
 </script>
 
