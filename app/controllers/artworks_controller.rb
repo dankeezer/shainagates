@@ -19,7 +19,7 @@ class ArtworksController < ApplicationController
       end
     end
     @artworks = Artwork.order("position")
-    @exhibitions = Exhibition.order("starts_at").reverse
+    @cv = CurriculumVitae.first
   end
 
   def new

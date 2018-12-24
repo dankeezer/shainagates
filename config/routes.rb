@@ -1,8 +1,6 @@
 ShainaGates::Application.routes.draw do
 	resources :curriculum_vitaes
-
   resources :artworks
-  resources :exhibitions
 
   root 'artworks#index'
 

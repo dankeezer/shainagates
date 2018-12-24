@@ -80,9 +80,9 @@ h4:link {
   text-decoration: underline !important;
 }
 
-
-
-
+.cv {
+  text-align: left;
+}
 </style>
 
 <body>
@@ -109,27 +109,15 @@ h4:link {
 
 <table>
   <tr width="700px" class="table_header">
-    <td width="25%"><h4>name</h4></td>
-    <td width="10%"><h4>starts</h4></td>
-    <td width="10%"><h4>ends</h4></td>
-    <td width="25%"><h4>location</h4></td>
-    <td width="25%"><h4>link</h4></td>
+    <td width="90%"><h4>cv</h4></td>
     <td width="10%"></td>
   </tr>
-  <tbody id="artworks" data-update-url="<% sort_artworks_url %>">
-    <% @exhibitions.each do |exhibition| %>
-      <%= content_tag_for :tr, exhibition do %>
-        <td><%= exhibition.name %></td>
-        <td><%= exhibition.starts_at.to_formatted_s(:month_and_year) %></td>
-        <td><%= exhibition.ends_at.to_formatted_s(:month_and_year) %></td>
-        <td><%= exhibition.location %></td>
-        <td><%= link_to exhibition.link, exhibition.link, :target => "_blank", :class => "inline_link" %></td>
-        <td><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_exhibition_path(exhibition) %> <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, exhibition_path(exhibition), method: :delete %></h4></td>
-      <% end %>
-    <% end %>
+  <tbody data-update-url="<% sort_artworks_url %>">
+    <tr>
+      <td class="cv"><%= markdown(@cv.body) %></td>
+      <td valign="top"><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_curriculum_vitae_path(@cv) %></h4></td>
+    </tr>
   </tbody>
-  <tr>
-  <td><h4><%= link_to "new exhibition", new_exhibition_path(@exhibition) %></h4></td></tr>
 </table>
 
 </body>

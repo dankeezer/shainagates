@@ -1,0 +1,46 @@
+<%= javascript_include_tag "http://code.jquery.com/jquery-latest.min.js" %>
+<%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
+
+<style>
+
+.input_field {
+  width: 90%;
+}
+
+.helpful_link a:link, a:visited, a:hover {
+  font-size: 14px !important;
+  text-decoration: underline !important;
+}
+
+</style>
+
+
+<% if @cv.errors.any? %>
+  <tr>
+    <td>
+      <h2>There were errors saving your cv</h2>
+      <ul>
+        <% @cv.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+<% end %>
+
+<tbody>
+
+  <%= simple_form_for @cv do |f| %>
+    <tr>
+      <td class="helpful_link">
+        <%= link_to "Markdown Cheatsheet", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet", target: "_blank" %>
+        <%= f.submit %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.text_area :body, :placeholder => "c/v", :class => "input_field", :cols => "10", :rows => "100" %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>

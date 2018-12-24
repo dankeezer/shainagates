@@ -1,9 +1,21 @@
 class CurriculumVitaesController < ApplicationController
-  def index
-    @cv = CurriculumVitae.order("published_at DESC")
+  def edit
+    @cv = CurriculumVitae.first
   end
 
-  def show
-    @cv = CurriculumVitae.find(params[:id])
+  def update
+    @cv = CurriculumVitae.first
+
+    if @cv.update(params[:curriculum_vitae].permit(:title, :body))
+      redirect_to admin_path
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def artwork_params
+    params.require('cv').permit(:title, :body)
   end
 end
