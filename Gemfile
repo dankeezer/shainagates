@@ -12,7 +12,7 @@ gem 'protected_attributes'
 gem 'jbuilder', '~> 2.0'
 gem 'filepicker-rails'
 gem 'pg'
-gem 'puma'
+gem 'puma', '~> 3.7'
 
 gem 'bootstrap-sass'
 
