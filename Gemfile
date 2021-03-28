@@ -19,7 +19,7 @@ gem 'bootstrap-sass'
 gem 'acts_as_list'
 gem 'jquery-rails'
 gem 'simple_form'
-gem 'redcarpet', '~> 3.4.0'
+gem 'redcarpet', '~> 3.5.1'
 gem 'responders', '~> 2.0'
 
 
