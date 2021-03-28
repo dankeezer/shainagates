@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.6.6'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.2'
+gem 'rails', '4.2.11.3'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -20,6 +20,7 @@ gem 'acts_as_list'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'redcarpet', '~> 3.4.0'
+gem 'responders', '~> 2.0'
 
 
 group :doc do
