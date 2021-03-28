@@ -1,14 +1,14 @@
 <style>
   .cv {
-    color: #FFF;
-    column-count: 3;
+    color: #000;
+    column-count: 4;
     font-size: 10pt;
     font-weight: 300;
   }
 
   .header {
     height: 10%;
-    color: #FFF;
+    color: #000;
     column-span: all;
     font-size: 14pt;
     font-weight: 300;
@@ -28,7 +28,7 @@
   }
 
   hr {
-    color: white;
+    color: black;
   }
 </style>
 
@@ -38,7 +38,6 @@
     <td class="cv_cell" border=0 valign="middle" width="50%">
       <div class="header">
         Shaina Gates <br />
-        <span class="tiny">b. 1983</span>
       </div>
       <div class="cv">
 	      <%= markdown(@cv.body) %>
